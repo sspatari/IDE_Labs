@@ -5,30 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab2Calculator"
         mc:Ignorable="d"
-        Title="FAF Calculator" Height="437" Width="246"
+        Title="FAF Calculator" Height="387" Width="246"
         ResizeMode="NoResize">
     <Grid>
-        <TextBox x:Name="ioTextBox" HorizontalAlignment="Left" Height="96" Margin="10,10,0,0" TextWrapping="Wrap" Text="Hi!" VerticalAlignment="Top" Width="218" TextAlignment="Center" FontSize="60"/>
-        <Button x:Name="clearAllButton" Content="C" HorizontalAlignment="Left" Height="50" Margin="10,127,0,0" VerticalAlignment="Top" Width="50" FontSize="20"/>
-        <Button x:Name="clearButton" Content="CE" HorizontalAlignment="Left" Height="50" Margin="65,127,0,0" VerticalAlignment="Top" Width="50" FontSize="20"/>
-        <Button x:Name="inversionButton" Content="(+/-)" HorizontalAlignment="Left" Height="50" Margin="120,127,0,0" VerticalAlignment="Top" Width="50" FontSize="20"/>
-        <Button x:Name="sqrtButton" Content="sqrt" HorizontalAlignment="Left" Height="50" Margin="175,127,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="multiplyButton" Content="*" HorizontalAlignment="Left" Height="50" Margin="175,182,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="subtractButton" Content="-" HorizontalAlignment="Left" Height="50" Margin="175,237,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="additionButton" Content="+" HorizontalAlignment="Left" Height="105" Margin="175,292,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="dotButton" Content="." HorizontalAlignment="Left" Height="50" Margin="65,347,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="resultButton" Content="=" HorizontalAlignment="Left" Height="50" Margin="120,347,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <TextBox x:Name="ioTextBox" HorizontalAlignment="Left" Height="60" Margin="10,10,0,0" TextWrapping="Wrap" Text="Hi!" VerticalAlignment="Top" Width="218" TextAlignment="Center" FontSize="60" FontFamily="Comics Sans" Focusable="False"/>
 
-        <Button x:Name="digit0Button" Content="0" HorizontalAlignment="Left" Height="50" Margin="10,347,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="digit1Button" Content="1" HorizontalAlignment="Left" Height="50" Margin="10,292,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="digit2Button" Content="2" HorizontalAlignment="Left" Height="50" Margin="65,292,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="digit3Button" Content="3" HorizontalAlignment="Left" Height="50" Margin="120,292,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="digit4Button" Content="4" HorizontalAlignment="Left" Height="50" Margin="10,237,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="digit5Button" Content="5" HorizontalAlignment="Left" Height="50" Margin="65,237,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="digit6Button" Content="6" HorizontalAlignment="Left" Height="50" Margin="120,237,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="digit7Button" Content="7" HorizontalAlignment="Left" Height="50" Margin="10,182,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="digit8Button" Content="8" HorizontalAlignment="Left" Height="50" Margin="65,182,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
-        <Button x:Name="digit9Button" Content="9" HorizontalAlignment="Left" Height="50" Margin="120,182,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit9Button_Click"/>
+        <Button x:Name="clearAllButton" Content="C" HorizontalAlignment="Left" Height="50" Margin="10,80,0,0" VerticalAlignment="Top" Width="50" FontSize="20"/>
+        <Button x:Name="clearButton" Content="CE" HorizontalAlignment="Left" Height="50" Margin="65,80,0,0" VerticalAlignment="Top" Width="50" FontSize="20"/>
+        <Button x:Name="inversionButton" Content="(+/-)" HorizontalAlignment="Left" Height="50" Margin="120,80,0,0" VerticalAlignment="Top" Width="50" FontSize="20"/>
+        <Button x:Name="sqrtButton" Content="sqrt" HorizontalAlignment="Left" Height="50" Margin="175,80,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="multiplyButton" Content="*" HorizontalAlignment="Left" Height="50" Margin="175,135,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="subtractButton" Content="-" HorizontalAlignment="Left" Height="50" Margin="175,190,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="additionButton" Content="+" HorizontalAlignment="Left" Height="105" Margin="175,245,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="dotButton" Content="." HorizontalAlignment="Left" Height="50" Margin="65,300,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="resultButton" Content="=" HorizontalAlignment="Left" Height="50" Margin="120,300,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+
+        <Button x:Name="digit0Button" Content="0" HorizontalAlignment="Left" Height="50" Margin="10,300,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="digit1Button" Content="1" HorizontalAlignment="Left" Height="50" Margin="10,245,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="digit2Button" Content="2" HorizontalAlignment="Left" Height="50" Margin="65,245,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="digit3Button" Content="3" HorizontalAlignment="Left" Height="50" Margin="120,245,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="digit4Button" Content="4" HorizontalAlignment="Left" Height="50" Margin="10,190,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="digit5Button" Content="5" HorizontalAlignment="Left" Height="50" Margin="65,190,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="digit6Button" Content="6" HorizontalAlignment="Left" Height="50" Margin="120,190,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="digit7Button" Content="7" HorizontalAlignment="Left" Height="50" Margin="10,135,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="digit8Button" Content="8" HorizontalAlignment="Left" Height="50" Margin="65,135,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
+        <Button x:Name="digit9Button" Content="9" HorizontalAlignment="Left" Height="50" Margin="120,135,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20"/>
 
     </Grid>
 </Window>
