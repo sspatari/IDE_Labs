@@ -37,9 +37,10 @@ namespace Lab2Calculator
            
         }
 
-        public void onRegularButton_Click(string character)
+        public String onRegularButton_Click(String character)
         {
             screenText = screenText + character;
+            return screenText;
         }
 
         public void onResultButton_Click()
