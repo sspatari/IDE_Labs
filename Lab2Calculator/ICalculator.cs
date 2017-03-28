@@ -9,25 +9,26 @@ namespace Lab2Calculator
 {
     interface ICalculator
     {
-        void digit0Button_Click(object sender, RoutedEventArgs e);
-        void digit1Button_Click(object sender, RoutedEventArgs e);
-        void digit2Button_Click(object sender, RoutedEventArgs e);
-        void digit3Button_Click(object sender, RoutedEventArgs e);
-        void digit4Button_Click(object sender, RoutedEventArgs e);
-        void digit5Button_Click(object sender, RoutedEventArgs e);
-        void digit6Button_Click(object sender, RoutedEventArgs e);
-        void digit7Button_Click(object sender, RoutedEventArgs e);
-        void digit8Button_Click(object sender, RoutedEventArgs e);
-        void digit9Button_Click(object sender, RoutedEventArgs e);
-        void pointButton_Click(object sender, RoutedEventArgs e);
-        void equalSignButton_Click(object sender, RoutedEventArgs e);
-        void plusButton_Click(object sender, RoutedEventArgs e);
-        void minusButton_Click(object sender, RoutedEventArgs e);
-        void multipButton_Click(object sender, RoutedEventArgs e);
-        void divButton_Click(object sender, RoutedEventArgs e);
-        void multiplicationButton_Click(object sender, RoutedEventArgs e);
-        void cancelButton_Click(object sender, RoutedEventArgs e);
-        void inversionButton_Click(object sender, RoutedEventArgs e);
-        void sqrtButton_Click(object sender, RoutedEventArgs e);
+        String screenText { get; set; }
+        void onDigit0Button_Click(object sender, RoutedEventArgs e);
+        void onDigit1Button_Click(object sender, RoutedEventArgs e);
+        void onDigit2Button_Click(object sender, RoutedEventArgs e);
+        void onDigit3Button_Click(object sender, RoutedEventArgs e);
+        void onDigit4Button_Click(object sender, RoutedEventArgs e);
+        void onDigit5Button_Click(object sender, RoutedEventArgs e);
+        void onDigit6Button_Click(object sender, RoutedEventArgs e);
+        void onDigit7Button_Click(object sender, RoutedEventArgs e);
+        void onDigit8Button_Click(object sender, RoutedEventArgs e);
+        void onDigit9Button_Click(object sender, RoutedEventArgs e);
+        void onPointButton_Click(object sender, RoutedEventArgs e);
+        void onEqualSignButton_Click(object sender, RoutedEventArgs e);
+        void onPlusButton_Click(object sender, RoutedEventArgs e);
+        void onMinusButton_Click(object sender, RoutedEventArgs e);
+        void onDivButton_Click(object sender, RoutedEventArgs e);
+        void onMultiplicationButton_Click(object sender, RoutedEventArgs e);
+        void onCancelButton_Click(object sender, RoutedEventArgs e);
+        void onInversionButton_Click(object sender, RoutedEventArgs e);
+        void onSqrtButton_Click(object sender, RoutedEventArgs e);
     }
+
 }
