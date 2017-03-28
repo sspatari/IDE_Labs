@@ -1,1 +1,2 @@
-## Integrated Developement Enviroments Laboratory Work Nr.1
+# Integrated Developement Enviroments Laboratory Work Nr.1
+## Setting server environment. Version Control Systems
