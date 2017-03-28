@@ -12,27 +12,28 @@ namespace Lab2Calculator
         public MainWindow()
         {
             InitializeComponent();
+            calculator = new CalculatorClass();
             
         }
 
         private void clearAllButton_Click(object sender, RoutedEventArgs e)
         {
-            calculator.onCancelButton_Click("");
+            calculator.onCancelButton_Click();
         }
 
         private void inversionButton_Click(object sender, RoutedEventArgs e)
         {
-            calculator.onInversionButton_Click("");
+            calculator.onInversionButton_Click();
         }
 
         private void sqrtButton_Click(object sender, RoutedEventArgs e)
         {
-            calculator.onSqrtButton_Click("");
+            calculator.onSqrtButton_Click();
         }
 
         private void resultButton_Click(object sender, RoutedEventArgs e)
         {
-            calculator.onResultButton_Click("");
+            calculator.onResultButton_Click();
         }
 
         private void dotButton_Click(object sender, RoutedEventArgs e)
