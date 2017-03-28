@@ -29,18 +29,17 @@ namespace Lab2Calculator
 
         public void onCancelButton_Click()
         {
-            
+            screenText = "0";
         }
 
         public void onInversionButton_Click()
         {
-           
+          
         }
 
-        public String onRegularButton_Click(String character)
+        public void onRegularButton_Click(String character)
         {
-            screenText = screenText + character;
-            return screenText;
+            screenText = character;
         }
 
         public void onResultButton_Click()

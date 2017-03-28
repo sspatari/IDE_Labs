@@ -11,7 +11,7 @@ namespace Lab2Calculator
     interface ICalculator:INotifyPropertyChanged
     {
         String screenText { get; set; }
-        String onRegularButton_Click(String character);
+        void onRegularButton_Click(String character);
         void onCancelButton_Click();
         void onInversionButton_Click();
         void onSqrtButton_Click();

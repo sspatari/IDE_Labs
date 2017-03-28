@@ -63,8 +63,9 @@ namespace Lab2Calculator
 
         private void digit0Button_Click(object sender, RoutedEventArgs e)
         {
-            calculator.screenText = "";
-            ioTextBox.Text += calculator.onRegularButton_Click("0");
+
+            calculator.onRegularButton_Click("0");
+            ioTextBox.Text += calculator.screenText;
 
         }
 
