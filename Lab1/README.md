@@ -71,7 +71,7 @@ Shell should look like:
 
 This is how it looks in command line:
 
-![Alt](images/branches.png)
+![Alt](images/branch.png)
 
 ## Committing on each branch
 
