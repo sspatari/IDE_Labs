@@ -36,3 +36,30 @@ Shell should look like:
 - Set the public key in github
 - Now we will clone the created remote repository `git clone git@github.com:sspatari/IDE_Labs.git`
 - Now we can work further on this project
+
+## Run some simple programs
+ - By default ubuntu has python installed so we can run any python script. However in order to run any others we have install the necessary compilers. So type in the following commands to install gcc, g++, ruby and nodejs:  
+
+     ```
+     sudo apt-get install ruby-full
+     sudo apt-get install -y nodejs
+     ```
+ - After installation we can run HelloWorldPrograms that are located in `hello_world_files/`.
+
+     ```
+     python hello_world_files/index.py
+
+     ruby hello_world_files/index.rb
+
+     node hello_world_files/index.js
+
+     gcc hello_world_files/index.c -o main
+     ./main
+
+     g++ hello_world_files/index.cpp -o maincpp
+     ./maincpp
+
+
+
+     ```
+     ![Alt](images/hello_world_files.png)
