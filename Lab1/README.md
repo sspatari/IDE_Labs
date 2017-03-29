@@ -106,3 +106,31 @@ Next merge using `git merge apple`
 We successful merged 2 branches but we have a conflict. Let solve it and commit changes. I will use vim to edit test.md file. More about vim [here](http://www.vim.org/)
 ![Alt](images/vim.png)
 ![Alt](images/resolve_conflict.png)
+
+## Shell script
+- To run a file from our HelloWorldPrograms folder we will write a shell script
+
+     ```
+     #!/bin/sh
+
+     echo Enter file name
+     read FILE
+     case $FILE in
+      *.cpp) gcc HelloWorldPrograms/$FILE -o ${FILE%.*} && ./${FILE%.*}
+
+      *.c) gcc HelloWorldPrograms/$FILE -o ${FILE%.*} && ./${FILE%.*}
+     			 ;;
+     	*.py) python HelloWorldPrograms/$FILE
+     			 ;;
+      *.js) nodejs HelloWorldPrograms/$FILE
+       		 ;;
+      *.rb) ruby HelloWorldPrograms/index.rb
+            ;;
+            
+     esac
+     ```
+
+ - Give execute permission to script: `chmod +x /path/to/my_script.sh`
+ - Run script: `./my_script.sh`
+
+     ![Alt](images/my_script.png)
