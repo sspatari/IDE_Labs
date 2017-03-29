@@ -83,3 +83,26 @@ This is how it looks in command line:
 It looks like:
 
 ![Alt](images/commits.png)
+
+## Reset a branch to previous commit
+- First we should see all our commits using command: `git log`
+
+    ![Alt](images/git_log.png)
+
+- Temporarily switch to a different commit: `git checkout <commitID>`
+
+    ![Alt](images/return_to_commit.png)
+
+- Hard delete unpublished commits: `git reset --hard <commitID>` (will return do selected commit)
+
+    ![Alt](images/reset_head.png)
+
+## Merge branches and resolve a conflicts
+We will merge apple branch in orange, so we should be on orange branch using `git checkout orange`  
+Next merge using `git merge apple`
+
+![Alt](images/merge.png)
+
+We successful merged 2 branches but we have a conflict. Let solve it and commit changes. I will use vim to edit test.md file. More about vim [here](http://www.vim.org/)
+![Alt](images/vim.png)
+![Alt](images/resolve_conflict.png)
