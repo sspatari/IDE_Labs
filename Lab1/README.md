@@ -26,3 +26,13 @@ Shell should look like:
 ![Alt](images/fish_shell.png)
 
 - Now we can perform any command from our terminal!
+
+## Set up git
+
+- First of all we have to install git `sudo apt-get install git`
+- Configure global user	name `git config --global user.name "sspatari"`
+- Configure global user	email `git config --global user.email "spatari.stanislav@gmail.com"`
+- Generate ssh key with `ssh-keygen`
+- Set the public key in github
+- Now we will clone the created remote repository `git clone git@github.com:sspatari/IDE_Labs.git`
+- Now we can work further on this project
