@@ -169,6 +169,7 @@ git-rebase - Reapply commits on top of another base tip. You can find more about
 git-cherry-pick - Apply the changes introduced by some existing commits. More [here](https://git-scm.com/docs/git-cherry-pick)  
 
 Here for example we took the last commite from branch orange and placed it in branch apple, this last commit just created a simple file2 :D
+
 ![Alt](images/cherry_pick.png)
 
 ## Conclusion
