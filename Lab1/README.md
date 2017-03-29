@@ -59,7 +59,27 @@ Shell should look like:
      g++ hello_world_files/index.cpp -o maincpp
      ./maincpp
 
-
-
      ```
-     ![Alt](images/hello_world_files.png)
+![Alt](images/hello_world_files.png)
+
+## Create new branches
+
+- Add two new branches with `git branch nameOfBranch`
+- Move to new branch with `git checkout nameOfBranch`
+- Now we can commit to a new branch
+- If we want to move back or to another branch use again `git checkout anotherBranchName`
+
+This is how it looks in command line:
+
+![Alt](images/branches.png)
+
+## Committing on each branch
+
+- After switching to another branch using `git checkout apple`
+- Create a file and write in it using `echo "#Apple changes" >> test.md`
+- Adds all files to your local repository and stages it for commit. `git add .` (To unstage a file, use `git reset HEAD YOUR-FILE`.)
+- Commit changes using `git commit -m "Some changes in test"`
+
+It looks like:
+
+![Alt](images/commits.png)
