@@ -104,7 +104,9 @@ Next merge using `git merge apple`
 ![Alt](images/merge.png)
 
 We successful merged 2 branches but we have a conflict. Let solve it and commit changes. I will use vim to edit test.md file. More about vim [here](http://www.vim.org/)
+
 ![Alt](images/vim.png)
+
 ![Alt](images/resolve_conflict.png)
 
 ## Shell script
@@ -117,16 +119,16 @@ We successful merged 2 branches but we have a conflict. Let solve it and commit 
      read FILE
      case $FILE in
       *.cpp) gcc HelloWorldPrograms/$FILE -o ${FILE%.*} && ./${FILE%.*}
-
+      ;;
       *.c) gcc HelloWorldPrograms/$FILE -o ${FILE%.*} && ./${FILE%.*}
-     			 ;;
+      ;;
      	*.py) python HelloWorldPrograms/$FILE
-     			 ;;
+      ;;
       *.js) nodejs HelloWorldPrograms/$FILE
-       		 ;;
+      ;;
       *.rb) ruby HelloWorldPrograms/index.rb
-            ;;
-            
+      ;;
+
      esac
      ```
 
@@ -134,3 +136,24 @@ We successful merged 2 branches but we have a conflict. Let solve it and commit 
  - Run script: `./my_script.sh`
 
      ![Alt](images/my_script.png)
+
+## GIT hooks
+Git hooks are scripts that Git executes before or after events such as: commit, push, and receive. You can find more info [here](http://githooks.com/).
+I will make a simple script in shell that will print the number of commits on branch before each commit
+
+Shell code:
+```
+#!/bin/sh
+
+currentbranch=`git branch | awk '/\*/ { print $2; }'`
+number=`git rev-list --count $currentbranch`
+
+echo $number 'commits on this branch'
+```
+- Create file `pre-commit` in `.git/hooks` folder
+- Paste code above in it
+- Give execute permission to script: `chmod +x pre-commit`
+
+And the result:
+
+![Alt](images/git_hook.png)
