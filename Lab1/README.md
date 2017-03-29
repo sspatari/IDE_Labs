@@ -157,3 +157,10 @@ echo $number 'commits on this branch'
 And the result:
 
 ![Alt](images/git_hook.png)
+
+## GIT rebase
+ +git-rebase - Reapply commits on top of another base tip. You can find more about it [here](https://git-scm.com/docs/git-rebase).  
+ +
+ +![Alt](images/rebase.png)
+ +
+ +![Alt](images/rebase2.png)
