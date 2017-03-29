@@ -168,4 +168,8 @@ git-rebase - Reapply commits on top of another base tip. You can find more about
 ## GIT cherry-pick
 git-cherry-pick - Apply the changes introduced by some existing commits. More [here](https://git-scm.com/docs/git-cherry-pick)  
 
+Here for example we took the last commite from branch orange and placed it in branch apple, this last commit just created a simple file2 :D
 ![Alt](images/cherry_pick.png)
+
+## Conclusion
+In this laboratory work we learned how to connect to another machine using a RSA encryption and SSH key. We also saw how many functions have a repository and whay they are used by many companies nowadays. Shell scripts are useful when you use bash commands, however the syntax is pretty hard to understand. We can create a repository now, link it to a remote repository, commit manipulate commits, push to the repository, modify and make pull requests for another repository.
