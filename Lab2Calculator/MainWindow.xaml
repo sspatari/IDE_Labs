@@ -8,9 +8,7 @@
         Title="FAF Calculator" Height="387" Width="301"
         
         ResizeMode="NoResize">
-    <local:StandartUserControl
-        ScreenText="{Binding Path=screenText}">
-        
-    </local:StandartUserControl>
-       
+    <local:StandartUserControl ScreenText="{Binding Path=screenText}"/>
+
+
 </Window>
