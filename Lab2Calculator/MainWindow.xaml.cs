@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Lab2Calculator
 {
     /// <summary>
@@ -21,12 +23,14 @@ namespace Lab2Calculator
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+
         private string _screenText;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string screenText
         {
+
             get
             {
                 return _screenText;

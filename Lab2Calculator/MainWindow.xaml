@@ -6,9 +6,7 @@
         xmlns:local="clr-namespace:Lab2Calculator"
         mc:Ignorable="d"
         Title="FAF Calculator" Height="387" Width="301"
-        
+
         ResizeMode="NoResize">
     <local:StandartUserControl ScreenText="{Binding Path=screenText}"/>
-
-
 </Window>
