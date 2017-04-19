@@ -20,9 +20,20 @@ namespace Lab2Calculator
     /// </summary>
     public partial class StandartUserControl : UserControl
     {
+        public string ScreenText
+        {
+            get { return (string)GetValue(ScreenTextProperty); }
+            set { SetValue(ScreenTextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ScreenText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ScreenTextProperty =
+            DependencyProperty.Register("ScreenText", typeof(string), typeof(StandartUserControl), new PropertyMetadata("0"));
+
         public StandartUserControl()
         {
             InitializeComponent();
+            StandartUI.DataContext = this;
         }
 
         private void clearAllButton_Click(object sender, RoutedEventArgs e)

@@ -20,9 +20,13 @@ namespace Lab2Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string screenText { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
+            screenText = "Haha";
         }
     }
 }

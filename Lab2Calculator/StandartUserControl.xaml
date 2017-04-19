@@ -6,10 +6,9 @@
              xmlns:local="clr-namespace:Lab2Calculator"
              mc:Ignorable="d" 
               d:DesignHeight="387" d:DesignWidth="301">
-    
-    <Grid>
-        <TextBox x:Name="ioTextBox" HorizontalAlignment="Left" Height="60" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Path=screenText}" VerticalAlignment="Top" Width="270" TextAlignment="Center" FontSize="40" FontFamily="Segoe UI" Focusable="False"/>
-        <Label x:Name="ioTextLabel" Content="{Binding Path=screenText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Height="60" Width="270" Background="#FFF2F7FF" OpacityMask="#7F6DC545" Cursor="Arrow" ScrollViewer.VerticalScrollBarVisibility="Disabled" FlowDirection="RightToLeft" FontSize="40" FontStretch="UltraExpanded" FontFamily="Segoe UI Light" RenderTransformOrigin="0.5,0.5"/>
+
+    <Grid x:Name="StandartUI">
+        <Label x:Name="ioTextLabel" Content="{Binding Path=ScreenText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Height="60" Width="270" Background="#FFF2F7FF" OpacityMask="#7F6DC545" Cursor="Arrow" ScrollViewer.VerticalScrollBarVisibility="Disabled" FlowDirection="RightToLeft" FontSize="40" FontStretch="UltraExpanded" FontFamily="Segoe UI Light" RenderTransformOrigin="0.5,0.5"/>
 
         <Button x:Name="clearAllButton" Content="C" HorizontalAlignment="Left" Height="50" Margin="10,80,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="clearAllButton_Click"/>
         <Button x:Name="divinionButton" Content="/" HorizontalAlignment="Left" Height="50" Margin="175,189,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="divisionButton_Click"/>
