@@ -31,8 +31,6 @@ namespace Lab2Calculator
             calculator.onResultButtonClick();
             System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
             System.Console.WriteLine("screenText = " + calculator.screenText);
- 
-
 
         }
 
