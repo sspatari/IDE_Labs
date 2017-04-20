@@ -10,8 +10,15 @@ namespace Lab2Calculator
     class CalculatorClass : ICalculator
     {
         private string _text;
+        private string _textHistory;
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
+        public CalculatorClass()
+        {
+            _text = "0";
+            _textHistory = "";
+        }
 
         public string screenText
         {
@@ -27,27 +34,79 @@ namespace Lab2Calculator
             }
         }
 
-        public void onCancelButton_Click()
+        public string screenTextHistory
+        {
+            get
+            {
+                return _textHistory;
+            }
+
+            set
+            {
+                _textHistory = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("screenTextHistory"));
+            }
+        }
+
+        public void onCancelButtonClick()
         {
             screenText = "0";
         }
 
-        public void onInversionButton_Click()
+        public void onCancelAllButtonClick()
         {
-          
+            screenTextHistory = "";
+            screenText = "0";
         }
 
-        public void onRegularButton_Click(String character)
+        public void onInversionButtonClick()
         {
-            screenText = character;
+
         }
 
-        public void onResultButton_Click()
+        public void onRegularButtonClick(String character)
+        {
+            if (screenText == "0")
+            {
+                screenText = character;
+            }
+            else
+            {
+                screenText += character;
+            }
+        }
+
+        public void onOperationButtonClick(String operation)
+        {
+            if(screenTextHistory == "")
+            {
+                screenTextHistory += screenText;
+                screenTextHistory += operation;
+                screenText = "0";//need to change to show result till this moment
+            }
+            else
+            {
+                screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length-1) + operation;
+                screenText = "0";//need to change to show result till this moment
+            }
+        }
+
+        public void onResultButtonClick()
         {
             
         }
 
-        public void onSqrtButton_Click()
+        public void onSqrtButtonClick()
+        {
+            
+        }
+
+        public void onBackspaceButtonClick()
+        {
+            
+        }
+
+        public void onPowerButtonClick()
         {
             
         }

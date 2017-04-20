@@ -10,11 +10,16 @@ namespace Lab2Calculator
 {
     interface ICalculator:INotifyPropertyChanged
     {
+        String screenTextHistory { get; set; }
         String screenText { get; set; }
-        void onRegularButton_Click(String character);
-        void onCancelButton_Click();
-        void onInversionButton_Click();
-        void onSqrtButton_Click();
-        void onResultButton_Click();
+        void onRegularButtonClick(String character);
+        void onOperationButtonClick(String opertion);
+        void onCancelButtonClick();
+        void onBackspaceButtonClick();
+        void onPowerButtonClick();
+        void onCancelAllButtonClick();
+        void onInversionButtonClick();
+        void onSqrtButtonClick();
+        void onResultButtonClick();
     }
 }
