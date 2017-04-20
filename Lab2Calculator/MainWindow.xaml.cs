@@ -1,4 +1,3 @@
-
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,6 +56,26 @@ namespace Lab2Calculator
         public MainWindow()
         {
             InitializeComponent();
+            calculator = new CalculatorClass();
+            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
+            calculator.onRegularButtonClick("9");
+            calculator.onRegularButtonClick("9");
+            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
+            calculator.onOperationButtonClick("*");
+            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
+            calculator.onOperationButtonClick("+");
+            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
+            calculator.onRegularButtonClick("7");
+            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
+            calculator.onResultButtonClick();
+            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
+
             this.DataContext = calculator;
             this.AddHandler(StandartUserControl.PressButton, new RoutedEventHandler(OnPressButton));
             this.AddHandler(FancyUserControl.PressButton, new RoutedEventHandler(OnPressButton));
@@ -72,34 +91,34 @@ namespace Lab2Calculator
             switch ((e.OriginalSource as FrameworkElement).Name)
             {
                 case "Num0":
-                    calculator?.onRegularButton_Click("0");
+                    calculator?.onRegularButtonClick("0");
                     break;
                 case "Num1":
-                    calculator?.onRegularButton_Click("1");
+                    calculator?.onRegularButtonClick("1");
                     break;
                 case "Num2":
-                    calculator?.onRegularButton_Click("2");
+                    calculator?.onRegularButtonClick("2");
                     break;
                 case "Num3":
-                    calculator?.onRegularButton_Click("3");
+                    calculator?.onRegularButtonClick("3");
                     break;
                 case "Num4":
-                    calculator?.onRegularButton_Click("4");
+                    calculator?.onRegularButtonClick("4");
                     break;
                 case "Num5":
-                    calculator?.onRegularButton_Click("5");
+                    calculator?.onRegularButtonClick("5");
                     break;
                 case "Num6":
-                    calculator?.onRegularButton_Click("6");
+                    calculator?.onRegularButtonClick("6");
                     break;
                 case "Num7":
-                    calculator?.onRegularButton_Click("7");
+                    calculator?.onRegularButtonClick("7");
                     break;
                 case "Num8":
-                    calculator?.onRegularButton_Click("8");
+                    calculator?.onRegularButtonClick("8");
                     break;
                 case "Num9":
-                    calculator?.onRegularButton_Click("9");
+                    calculator?.onRegularButtonClick("9");
                     break;
                 case "ChangeUI":
                     switch (UIStyle)
@@ -117,31 +136,43 @@ namespace Lab2Calculator
                     }
                     break;
                 case "Power":
-                    calculator?.onRegularButton_Click("^");
+                    calculator?.onPowerButtonClick();
                     break;
                 case "Dot":
-                    calculator?.onRegularButton_Click(".");
+                    calculator?.onOperationButtonClick(".");
                     break;
                 case "Add":
-                    calculator?.onRegularButton_Click("+");
+                    calculator?.onOperationButtonClick("+");
                     break;
                 case "Divide":
-                    calculator?.onRegularButton_Click("/");
+                    calculator?.onOperationButtonClick("/");
                     break;
                 case "Multiply":
-                    calculator?.onRegularButton_Click("*");
+                    calculator?.onOperationButtonClick("*");
                     break;
                 case "Subtract":
-                    calculator?.onRegularButton_Click("-");
+                    calculator?.onOperationButtonClick("-");
                     break;
                 case "Sqrt":
-                    calculator?.onSqrtButton_Click("");
+                    calculator?.onSqrtButtonClick();
                     break;
                 case "Inverse":
-                    calculator?.onInversionButton_Click("");
+                    calculator?.onInversionButtonClick();
                     break;
                 case "ClearAll":
-                    calculator?.onCancelButton_Click("");
+                    calculator?.onCancelAllButtonClick();
+                    break;
+                case "Result":
+                    calculator?.onResultButtonClick();
+                    break;
+                case "Clear":
+                    calculator?.onCancelButtonClick();
+                    break;
+                case "LeftParanthesys":
+                    calculator?.onRegularButtonClick("(");
+                    break;
+                case "RightParanthesys":
+                    calculator?.onRegularButtonClick(")");
                     break;
                 default:
                     break;

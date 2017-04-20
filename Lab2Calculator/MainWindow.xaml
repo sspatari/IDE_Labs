@@ -1,18 +1,18 @@
-﻿<Window x:Class="Lab2Calculator.MainWindow"
+<Window x:Class="Lab2Calculator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab2Calculator"
         mc:Ignorable="d"
-        Title="FAF Calculator" Height="420" Width="300"
+        Title="FAF Calculator" Height="387" Width="301"
         ResizeMode="NoResize">
-    
+
     <Grid>
         <ContentControl x:Name="StandartView" Visibility="Visible">
             <local:StandartUserControl
                 ScreenText="{Binding screenText}"
-                ScreenTextHistory="{Binding screenText}">
+                 ScreenTextHistory="{Binding screenText}">
             </local:StandartUserControl>
         </ContentControl>
         <ContentControl x:Name="FancyView" Visibility="Hidden">
