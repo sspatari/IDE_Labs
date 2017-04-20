@@ -7,30 +7,35 @@
              mc:Ignorable="d" 
               d:DesignHeight="387" d:DesignWidth="301">
 
-    <Grid x:Name="StandartUI">
-        <Label x:Name="ioTextLabel" Content="{Binding Path=ScreenText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Height="60" Width="270" Background="#FFF2F7FF" OpacityMask="#7F6DC545" Cursor="Arrow" ScrollViewer.VerticalScrollBarVisibility="Disabled" FlowDirection="RightToLeft" FontSize="40" FontStretch="UltraExpanded" FontFamily="Segoe UI Light" RenderTransformOrigin="0.5,0.5"/>
 
-        <Button x:Name="clearAllButton" Content="C" HorizontalAlignment="Left" Height="50" Margin="10,80,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="clearAllButton_Click"/>
-        <Button x:Name="divinionButton" Content="/" HorizontalAlignment="Left" Height="50" Margin="175,189,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="divisionButton_Click"/>
-        <Button x:Name="inversionButton" Content="(+/-)" HorizontalAlignment="Left" Height="50" Margin="230,135,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="inversionButton_Click"/>
-        <Button x:Name="sqrtButton" Content="sqrt" HorizontalAlignment="Left" Height="50" Margin="175,135,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="sqrtButton_Click"/>
-        <Button x:Name="multiplyButton" Content="*" HorizontalAlignment="Left" Height="50" Margin="175,244,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="multiplyButton_Click"/>
-        <Button x:Name="subtractButton" Content="-" HorizontalAlignment="Left" Height="50" Margin="175,299,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="subtractButton_Click"/>
-        <Button x:Name="additionButton" Content="+" HorizontalAlignment="Left" Height="105" Margin="230,245,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="additionButton_Click"/>
-        <Button x:Name="dotButton" Content="." HorizontalAlignment="Left" Height="50" Margin="65,300,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="dotButton_Click"/>
-        <Button x:Name="resultButton" Content="=" HorizontalAlignment="Left" Height="50" Margin="120,300,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="resultButton_Click"/>
-        <Button x:Name="powerButton" Content="^" HorizontalAlignment="Left" Height="50" Margin="232,190,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="powerButton_Click"/>
-        <Button x:Name="digit0Button" Content="0" HorizontalAlignment="Left" Height="50" Margin="10,300,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit0Button_Click"/>
-        <Button x:Name="digit1Button" Content="1" HorizontalAlignment="Left" Height="50" Margin="10,245,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit1Button_Click"/>
-        <Button x:Name="digit2Button" Content="2" HorizontalAlignment="Left" Height="50" Margin="65,245,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit2Button_Click"/>
-        <Button x:Name="digit3Button" Content="3" HorizontalAlignment="Left" Height="50" Margin="120,245,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit3Button_Click"/>
-        <Button x:Name="digit4Button" Content="4" HorizontalAlignment="Left" Height="50" Margin="10,190,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit4Button_Click"/>
-        <Button x:Name="digit5Button" Content="5" HorizontalAlignment="Left" Height="50" Margin="65,190,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit5Button_Click"/>
-        <Button x:Name="digit6Button" Content="6" HorizontalAlignment="Left" Height="50" Margin="120,190,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit6Button_Click"/>
-        <Button x:Name="digit7Button" Content="7" HorizontalAlignment="Left" Height="50" Margin="10,135,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit7Button_Click"/>
-        <Button x:Name="digit8Button" Content="8" HorizontalAlignment="Left" Height="50" Margin="65,135,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit8Button_Click"/>
-        <Button x:Name="digit9Button" Content="9" HorizontalAlignment="Left" Height="50" Margin="120,135,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit9Button_Click"/>
-        <Button x:Name="fancyButton" Content="Go&#xD;&#xA;fancy" HorizontalAlignment="Left" Height="50" Margin="230,80,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="fancyButton_Click"/>
+    <Grid x:Name="StandartUI" Margin="0,0,0,-13">
+        <Label x:Name="ioTextLabel" Content="{Binding Path=ScreenText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Height="60" Width="270" Background="#FFF2F7FF" OpacityMask="#7F6DC545" Cursor="Arrow" ScrollViewer.VerticalScrollBarVisibility="Disabled" FlowDirection="RightToLeft" FontSize="40" FontStretch="UltraExpanded" FontFamily="Segoe UI Light" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="ioTextHistoryLabel" Content="{Binding Path=ScreenTextHistory, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="55" Width="270" Background="#FFF2F7FF" OpacityMask="#7F6DC545" Cursor="Arrow" ScrollViewer.VerticalScrollBarVisibility="Disabled" FlowDirection="RightToLeft" FontStretch="UltraExpanded" FontFamily="Segoe UI Light" RenderTransformOrigin="0.5,0.5" BorderThickness="0" Foreground="#FF9E9E9E" FontSize="22"/>
+
+        <Button x:Name="clearAllButton" Content="C" HorizontalAlignment="Left" Height="50" Margin="10,117,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="clearAllButton_Click"/>
+        <Button x:Name="divinionButton" Content="/" HorizontalAlignment="Left" Height="50" Margin="175,226,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="divisionButton_Click"/>
+        <Button x:Name="inversionButton" Content="(+/-)" HorizontalAlignment="Left" Height="50" Margin="230,172,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="inversionButton_Click"/>
+        <Button x:Name="sqrtButton" Content="sqrt" HorizontalAlignment="Left" Height="50" Margin="175,172,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="sqrtButton_Click"/>
+        <Button x:Name="multiplyButton" Content="*" HorizontalAlignment="Left" Height="50" Margin="175,281,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="multiplyButton_Click"/>
+        <Button x:Name="subtractButton" Content="-" HorizontalAlignment="Left" Height="50" Margin="175,336,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="subtractButton_Click"/>
+        <Button x:Name="additionButton" Content="+" HorizontalAlignment="Left" Height="105" Margin="230,282,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="additionButton_Click"/>
+        <Button x:Name="dotButton" Content="." HorizontalAlignment="Left" Height="50" Margin="65,337,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="dotButton_Click"/>
+        <Button x:Name="resultButton" Content="=" HorizontalAlignment="Left" Height="50" Margin="120,337,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="resultButton_Click"/>
+        <Button x:Name="powerButton" Content="^" HorizontalAlignment="Left" Height="50" Margin="230,226,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="powerButton_Click"/>
+        <Button x:Name="digit0Button" Content="0" HorizontalAlignment="Left" Height="50" Margin="10,337,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit0Button_Click"/>
+        <Button x:Name="digit1Button" Content="1" HorizontalAlignment="Left" Height="50" Margin="10,282,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit1Button_Click"/>
+        <Button x:Name="digit2Button" Content="2" HorizontalAlignment="Left" Height="50" Margin="65,282,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit2Button_Click"/>
+        <Button x:Name="digit3Button" Content="3" HorizontalAlignment="Left" Height="50" Margin="120,282,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit3Button_Click"/>
+        <Button x:Name="digit4Button" Content="4" HorizontalAlignment="Left" Height="50" Margin="10,227,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit4Button_Click"/>
+        <Button x:Name="digit5Button" Content="5" HorizontalAlignment="Left" Height="50" Margin="65,227,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit5Button_Click"/>
+        <Button x:Name="digit6Button" Content="6" HorizontalAlignment="Left" Height="50" Margin="120,227,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit6Button_Click"/>
+        <Button x:Name="digit7Button" Content="7" HorizontalAlignment="Left" Height="50" Margin="10,172,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit7Button_Click"/>
+        <Button x:Name="digit8Button" Content="8" HorizontalAlignment="Left" Height="50" Margin="65,172,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit8Button_Click"/>
+        <Button x:Name="digit9Button" Content="9" HorizontalAlignment="Left" Height="50" Margin="120,172,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="20" Click="digit9Button_Click"/>
+        <Button x:Name="fancyButton" Content="Go&#xD;&#xA;fancy" HorizontalAlignment="Left" Height="50" Margin="230,117,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="fancyButton_Click"/>
+        <Button x:Name="clearButton" Content="CE" HorizontalAlignment="Left" Height="50" Margin="65,117,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="clearButton_Click" />
+        <Button x:Name="paranthesysLeftButton" Content="(" HorizontalAlignment="Left" Height="50" Margin="120,117,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="paranthesysLeftButton_Click" />
+        <Button x:Name="paranthesysRightButton" Content=")" HorizontalAlignment="Left" Height="50" Margin="175,117,0,0" VerticalAlignment="Top" Width="50" FontSize="20" Click="paranthesysRightButton_Click" />
 
     </Grid>
 </UserControl>

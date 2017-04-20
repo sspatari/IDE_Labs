@@ -57,7 +57,8 @@ namespace Lab2Calculator
         {
             InitializeComponent();
             calculator = new CalculatorClass();
-            /*System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            /*
+            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
             System.Console.WriteLine("screenText = " + calculator.screenText);
             calculator.onRegularButtonClick("9");
             calculator.onRegularButtonClick("9");
@@ -165,6 +166,15 @@ namespace Lab2Calculator
                 case "Result":
                     calculator?.onResultButtonClick();
                     break;
+                case "Clear":
+                    calculator?.onCancelButtonClick();
+                    break;
+                case "LeftParanthesys":
+                    calculator?.onRegularButtonClick("(");
+                    break;
+                case "RightParanthesys":
+                    calculator?.onRegularButtonClick(")");
+                    break;
                 default:
                     break;
             };
@@ -172,4 +182,5 @@ namespace Lab2Calculator
 
         #endregion
     }
+
 }

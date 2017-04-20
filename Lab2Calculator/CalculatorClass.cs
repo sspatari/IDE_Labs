@@ -11,6 +11,8 @@ namespace Lab2Calculator
     {
         private string _text;
         private string _textHistory;
+        private string _result;
+        private bool _regularPress;
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
@@ -18,7 +20,8 @@ namespace Lab2Calculator
         {
             screenText = "0";
             screenTextHistory = "";
-        }
+            _regularPress = false;
+    }
 
         public string screenText
         {
@@ -51,12 +54,14 @@ namespace Lab2Calculator
         public void onCancelButtonClick()
         {
             screenText = "0";
+            _regularPress = true;
         }
 
         public void onCancelAllButtonClick()
         {
             screenTextHistory = "";
             screenText = "0";
+            _regularPress = true;
         }
 
         public void onInversionButtonClick()
@@ -66,28 +71,41 @@ namespace Lab2Calculator
 
         public void onRegularButtonClick(String character)
         {
-            if (screenText == "0")
+            if(_regularPress == false)
             {
                 screenText = character;
-            }
-            else
+            }else
             {
-                screenText += character;
+                if (screenText == "0")
+                {
+                    screenText = character;
+                }
+                else
+                {
+                    screenText += character;
+                }
             }
+            _regularPress = true;
         }
 
         public void onOperationButtonClick(String operation)
         {
-            if(screenTextHistory == "")
+            if(_regularPress == true)
             {
                 screenTextHistory += screenText;
+                _result = Evaluate(screenTextHistory).ToString();
+                screenText = _result;
                 screenTextHistory += operation;
-                screenText = "0";//need to change to show result till this moment
+                System.Console.WriteLine("screenTextHistory = " + screenTextHistory);
+                System.Console.WriteLine("screenText = " + screenText);
+                _regularPress = false;
             }
             else
             {
                 screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length-1) + operation;
-                screenText = "0";//need to change to show result till this moment
+                System.Console.WriteLine("screenTextHistory = " + screenTextHistory);
+                System.Console.WriteLine("screenText = " + screenText);
+                screenText = _result;//need to change to show result till this moment
             }
         }
 
