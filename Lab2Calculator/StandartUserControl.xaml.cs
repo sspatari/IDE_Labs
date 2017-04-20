@@ -36,6 +36,16 @@ namespace Lab2Calculator
         public static readonly DependencyProperty ScreenTextProperty =
             DependencyProperty.Register("ScreenText", typeof(string), typeof(StandartUserControl), new PropertyMetadata("0"));
 
+        public string ScreenTextHistory
+        {
+            get { return (string)GetValue(ScreenTextHistoryProperty); }
+            set { SetValue(ScreenTextHistoryProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ScreenText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ScreenTextHistoryProperty =
+            DependencyProperty.Register("ScreenTextHistory", typeof(string), typeof(StandartUserControl), new PropertyMetadata(""));
+
 
         public static readonly RoutedEvent PressButton = EventManager.RegisterRoutedEvent(
              "PressButton", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(StandartUserControl));
