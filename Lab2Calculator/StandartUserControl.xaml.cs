@@ -20,6 +20,12 @@ namespace Lab2Calculator
     /// </summary>
     public partial class StandartUserControl : UserControl
     {
+        public StandartUserControl()
+        {
+            InitializeComponent();
+            StandartUI.DataContext = this;
+        }
+
         public string ScreenText
         {
             get { return (string)GetValue(ScreenTextProperty); }
@@ -41,11 +47,7 @@ namespace Lab2Calculator
             remove { RemoveHandler(PressButton, value); }
         }
 
-        public StandartUserControl()
-        {
-            InitializeComponent();
-            StandartUI.DataContext = this;
-        }
+        
 
         private void clearAllButton_Click(object sender, RoutedEventArgs e)
         {

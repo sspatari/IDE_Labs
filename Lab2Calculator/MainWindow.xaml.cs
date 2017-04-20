@@ -69,6 +69,7 @@ namespace Lab2Calculator
             this.DataContext = this;
             screenText = "Haha";
             this.AddHandler(StandartUserControl.PressButton, new RoutedEventHandler(OnPressButton));
+            this.AddHandler(FancyUserControl.PressButton, new RoutedEventHandler(OnPressButton));
         }
 
         public void OnPressButton(object sender, RoutedEventArgs e)
