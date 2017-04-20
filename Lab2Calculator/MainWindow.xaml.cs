@@ -181,4 +181,5 @@ namespace Lab2Calculator
 
         #endregion
     }
+
 }

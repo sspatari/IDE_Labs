@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
               d:DesignHeight="387" d:DesignWidth="301">
 
+
     <Grid x:Name="StandartUI" Margin="0,0,0,-13">
         <Label x:Name="ioTextLabel" Content="{Binding Path=ScreenText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Height="60" Width="270" Background="#FFF2F7FF" OpacityMask="#7F6DC545" Cursor="Arrow" ScrollViewer.VerticalScrollBarVisibility="Disabled" FlowDirection="RightToLeft" FontSize="40" FontStretch="UltraExpanded" FontFamily="Segoe UI Light" RenderTransformOrigin="0.5,0.5"/>
         <Label x:Name="ioTextHistoryLabel" Content="{Binding Path=ScreenTextHistory, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="55" Width="270" Background="#FFF2F7FF" OpacityMask="#7F6DC545" Cursor="Arrow" ScrollViewer.VerticalScrollBarVisibility="Disabled" FlowDirection="RightToLeft" FontStretch="UltraExpanded" FontFamily="Segoe UI Light" RenderTransformOrigin="0.5,0.5" BorderThickness="0" Foreground="#FF9E9E9E" FontSize="22"/>
