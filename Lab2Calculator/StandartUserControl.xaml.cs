@@ -36,6 +36,16 @@ namespace Lab2Calculator
         public static readonly DependencyProperty ScreenTextProperty =
             DependencyProperty.Register("ScreenText", typeof(string), typeof(StandartUserControl), new PropertyMetadata("0"));
 
+        public string ScreenTextHistory
+        {
+            get { return (string)GetValue(ScreenTextHistoryProperty); }
+            set { SetValue(ScreenTextHistoryProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ScreenText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ScreenTextHistoryProperty =
+            DependencyProperty.Register("ScreenTextHistory", typeof(string), typeof(StandartUserControl), new PropertyMetadata("0"));
+
 
         public static readonly RoutedEvent PressButton = EventManager.RegisterRoutedEvent(
              "PressButton", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(StandartUserControl));
@@ -192,6 +202,27 @@ namespace Lab2Calculator
         private void fancyButton_Click(object sender, RoutedEventArgs e)
         {
             (e.OriginalSource as FrameworkElement).Name = "ChangeUI";
+            RaiseEvent(new RoutedEventArgs(PressButton, sender));
+            e.Handled = true;
+        }
+
+        private void clearButton_Click(object sender, RoutedEventArgs e)
+        {
+            (e.OriginalSource as FrameworkElement).Name = "Clear";
+            RaiseEvent(new RoutedEventArgs(PressButton, sender));
+            e.Handled = true;
+        }
+
+        private void paranthesysRightButton_Click(object sender, RoutedEventArgs e)
+        {
+            (e.OriginalSource as FrameworkElement).Name = "RightParanthesys";
+            RaiseEvent(new RoutedEventArgs(PressButton, sender));
+            e.Handled = true;
+        }
+
+        private void paranthesysLeftButton_Click(object sender, RoutedEventArgs e)
+        {
+            (e.OriginalSource as FrameworkElement).Name = "LeftParanthesys";
             RaiseEvent(new RoutedEventArgs(PressButton, sender));
             e.Handled = true;
         }

@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab2Calculator"
         mc:Ignorable="d"
-        Title="FAF Calculator" Height="387" Width="301"
+        Title="FAF Calculator" Height="420" Width="300"
         ResizeMode="NoResize">
     
     <Grid>
         <ContentControl x:Name="StandartView" Visibility="Visible">
             <local:StandartUserControl
-                ScreenText="{Binding screenText}">
+                ScreenText="{Binding screenText}"
+                ScreenTextHistory="{Binding screenText}">
             </local:StandartUserControl>
         </ContentControl>
         <ContentControl x:Name="FancyView" Visibility="Hidden">
