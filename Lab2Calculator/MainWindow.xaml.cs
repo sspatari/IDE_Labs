@@ -24,6 +24,25 @@ namespace Lab2Calculator
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
 
+        public enum UIStyles
+        {
+            Standart,
+            Fancy
+        }
+
+        // Using a DependencyProperty as the backing store for UIStyle.  This enables animation, styling, binding, etc... 
+        private static readonly DependencyPropertyKey UIStylePropertyKey = 
+            DependencyProperty.RegisterReadOnly("UIStyle", typeof(UIStyles), typeof(MainWindow), new FrameworkPropertyMetadata(UIStyles.Standart));
+
+        public static readonly DependencyProperty UIStyleProperty = MainWindow.UIStylePropertyKey.DependencyProperty;
+
+        public UIStyles UIStyle
+        {
+            get { return (UIStyles)GetValue(UIStyleProperty); }
+            set { SetValue(UIStylePropertyKey, value); }
+        }
+
+
         private string _screenText;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -90,7 +109,19 @@ namespace Lab2Calculator
                     calculator?.onRegularButton_Click("9");
                     break;
                 case "ChangeUI":
-                    
+                    switch (UIStyle)
+                    {
+                        case UIStyles.Standart:
+                            UIStyle = UIStyles.Fancy;
+                            StandartView.Visibility = Visibility.Hidden;
+                            FancyView.Visibility = Visibility.Visible;
+                            break;
+                        case UIStyles.Fancy:
+                            UIStyle = UIStyles.Standart;
+                            StandartView.Visibility = Visibility.Visible;
+                            FancyView.Visibility = Visibility.Hidden;
+                            break;
+                    }
                     break;
                 case "Power":
                     calculator?.onRegularButton_Click("^");

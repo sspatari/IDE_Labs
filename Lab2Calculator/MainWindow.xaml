@@ -8,5 +8,18 @@
         Title="FAF Calculator" Height="387" Width="301"
 
         ResizeMode="NoResize">
-    <local:StandartUserControl ScreenText="{Binding Path=screenText}"/>
+    <Grid>
+        
+    <ContentControl x:Name="StandartView" Visibility="Visible">
+        <local:StandartUserControl
+            ScreenText="{Binding screenText}"></local:StandartUserControl>
+    </ContentControl>
+
+        <ContentControl x:Name="FancyView" Visibility="Hidden">
+            <local:FancyUserControl>
+                
+            </local:FancyUserControl>
+        </ContentControl>
+    </Grid>
+
 </Window>
