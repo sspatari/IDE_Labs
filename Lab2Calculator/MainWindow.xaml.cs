@@ -13,18 +13,27 @@ namespace Lab2Calculator
         {
             InitializeComponent();
             calculator = new CalculatorClass();
-            System.Console.WriteLine("screenText = " + calculator.screenText);
             System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
             calculator.onRegularButtonClick("9");
             calculator.onRegularButtonClick("9");
-            System.Console.WriteLine("screenText = " + calculator.screenText);
             System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
             calculator.onOperationButtonClick("*");
-            System.Console.WriteLine("screenText = " + calculator.screenText);
             System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
             calculator.onOperationButtonClick("+");
-            System.Console.WriteLine("screenText = " + calculator.screenText);
             System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
+            calculator.onRegularButtonClick("7");
+            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
+            calculator.onResultButtonClick();
+            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
+            System.Console.WriteLine("screenText = " + calculator.screenText);
+ 
+
+
         }
 
         private void clearAllButton_Click(object sender, RoutedEventArgs e)

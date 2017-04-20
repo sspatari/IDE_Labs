@@ -13,11 +13,11 @@ namespace Lab2Calculator
         String screenTextHistory { get; set; }
         String screenText { get; set; }
         void onRegularButtonClick(String character);
-        void onOperationButtonClick(String opertion);
+        void onOperationButtonClick(String operation);
         void onCancelButtonClick();
+        void onCancelAllButtonClick();
         void onBackspaceButtonClick();
         void onPowerButtonClick();
-        void onCancelAllButtonClick();
         void onInversionButtonClick();
         void onSqrtButtonClick();
         void onResultButtonClick();
