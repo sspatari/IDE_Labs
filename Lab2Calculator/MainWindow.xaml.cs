@@ -21,8 +21,10 @@ namespace Lab2Calculator
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
+
+        #region UI styles declaration
 
         public enum UIStyles
         {
@@ -42,45 +44,35 @@ namespace Lab2Calculator
             set { SetValue(UIStylePropertyKey, value); }
         }
 
+        #endregion
 
-        private string _screenText;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public string screenText
-        {
-
-            get
-            {
-                return _screenText;
-            }
-            set
-            {
-                _screenText = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("screenText"));
-            }
-        }
+        #region Fields
 
         ICalculator calculator;
+
+        #endregion
+
+        #region Constructors
 
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = this;
-            screenText = "Haha";
+            this.DataContext = calculator;
             this.AddHandler(StandartUserControl.PressButton, new RoutedEventHandler(OnPressButton));
             this.AddHandler(FancyUserControl.PressButton, new RoutedEventHandler(OnPressButton));
         }
 
+        #endregion
+
+        #region Handlers
+
         public void OnPressButton(object sender, RoutedEventArgs e)
         {
             Console.WriteLine((e.OriginalSource as FrameworkElement).Name);
-            
             switch ((e.OriginalSource as FrameworkElement).Name)
             {
                 case "Num0":
                     calculator?.onRegularButton_Click("0");
-                    screenText += "a";
                     break;
                 case "Num1":
                     calculator?.onRegularButton_Click("1");
@@ -155,5 +147,7 @@ namespace Lab2Calculator
                     break;
             };
         }
+
+        #endregion
     }
 }

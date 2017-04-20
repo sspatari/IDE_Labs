@@ -211,7 +211,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="fancyButton" Content="Go&#xD;&#xA;fancy" HorizontalAlignment="Left" Height="50" Margin="230,80,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" BorderBrush="{x:Null}" Click="fancyButton_Click">
+        <Button x:Name="fancyButton" Content="Go&#xD;&#xA;boring" HorizontalAlignment="Left" Height="50" Margin="230,80,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.6,0.48" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" BorderBrush="{x:Null}" Click="fancyButton_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#B2BF3F3F" Offset="0"/>
