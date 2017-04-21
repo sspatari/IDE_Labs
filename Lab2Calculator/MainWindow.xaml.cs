@@ -57,26 +57,6 @@ namespace Lab2Calculator
         {
             InitializeComponent();
             calculator = new CalculatorClass();
-            /*
-            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
-            System.Console.WriteLine("screenText = " + calculator.screenText);
-            calculator.onRegularButtonClick("9");
-            calculator.onRegularButtonClick("9");
-            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
-            System.Console.WriteLine("screenText = " + calculator.screenText);
-            calculator.onOperationButtonClick("*");
-            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
-            System.Console.WriteLine("screenText = " + calculator.screenText);
-            calculator.onOperationButtonClick("+");
-            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
-            System.Console.WriteLine("screenText = " + calculator.screenText);
-            calculator.onRegularButtonClick("7");
-            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
-            System.Console.WriteLine("screenText = " + calculator.screenText);
-            calculator.onResultButtonClick();
-            System.Console.WriteLine("screenTextHistory = " + calculator.screenTextHistory);
-            System.Console.WriteLine("screenText = " + calculator.screenText);
-            */
             this.DataContext = calculator;
             this.AddHandler(StandartUserControl.PressButton, new RoutedEventHandler(OnPressButton));
             this.AddHandler(FancyUserControl.PressButton, new RoutedEventHandler(OnPressButton));
