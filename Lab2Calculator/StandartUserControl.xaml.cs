@@ -23,8 +23,10 @@ namespace Lab2Calculator
         public StandartUserControl()
         {
             InitializeComponent();
-            StandartUI.DataContext = this;
+            StandartUI.DataContext = this;  
         }
+        
+        #region Dependency Properties
 
         public string ScreenText
         {
@@ -57,7 +59,9 @@ namespace Lab2Calculator
             remove { RemoveHandler(PressButton, value); }
         }
 
+        #endregion
         
+        #region Handlers
 
         private void clearAllButton_Click(object sender, RoutedEventArgs e)
         {
@@ -233,5 +237,7 @@ namespace Lab2Calculator
             RaiseEvent(new RoutedEventArgs(PressButton, sender));
             e.Handled = true;
         }
+        #endregion
+
     }
 }
