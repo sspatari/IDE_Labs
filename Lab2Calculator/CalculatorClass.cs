@@ -14,7 +14,7 @@ namespace Lab2Calculator
         private string _textHistory;
         private string _result;
         private bool _regularPress;
-
+        
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         public CalculatorClass()
@@ -89,6 +89,10 @@ namespace Lab2Calculator
             }
             _regularPress = true;
         }
+        public void onDotButtonClick()
+        {
+
+        }
 
         public void onOperationButtonClick(String operation)
         {
@@ -108,6 +112,42 @@ namespace Lab2Calculator
                 screenText = _result;
             }
         }
+        public void onOperationGradeOneButtonClick(String operation)
+        {
+            DataTable dt = new DataTable();
+
+            if (_regularPress == true)
+            {
+                screenTextHistory += screenText;
+                _result = dt.Compute(screenTextHistory, null).ToString();
+                screenText = _result;
+                screenTextHistory += operation;
+                _regularPress = false;
+            }
+            else
+            {
+                screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length - 1) + operation;
+                screenText = _result;
+            }
+        }
+        public void onOperationGradeTwoButtonClick(String operation)
+        {
+            DataTable dt = new DataTable();
+
+            if (_regularPress == true)
+            {
+                screenTextHistory += screenText;
+                _result = dt.Compute(screenTextHistory, null).ToString();
+                screenText = _result;
+                screenTextHistory += operation;
+                _regularPress = false;
+            }
+            else
+            {
+                screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length - 1) + operation;
+                screenText = _result;
+            }
+        }
 
         public void onResultButtonClick()
         {
@@ -120,17 +160,38 @@ namespace Lab2Calculator
 
         public void onSqrtButtonClick()
         {
-            
+            // sqrt symbol in unicode is \u221A
+
         }
 
         public void onBackspaceButtonClick()
         {
-            
+            if(_regularPress == true)
+            {
+                if(screenText.Length == 1 || (screenText.Length == 2 && String.Equals(screenText[0],"-")))
+                {
+                    screenText = "0";
+                }
+                else
+                {
+                    screenText = screenText.Remove(screenText.Length - 1);
+                }
+            }
         }
 
         public void onPowerButtonClick()
         {
             
+        }
+
+        public void onLeftParanthesesClick()
+        {
+
+        }
+
+        public void onRightParanthesesClick()
+        {
+
         }
     }
 }
