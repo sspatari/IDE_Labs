@@ -161,7 +161,9 @@ namespace Lab2Calculator
         {
             if(_regularPress == true)
             {
-                if(screenText.Length == 1 || (screenText.Length == 2 && String.Equals(screenText[0],"-")))
+                if(screenText.Length == 1 || 
+                    (screenText.Length == 2 && String.Equals(screenText[0],"-")) ||
+                    (screenText.Length == 3 && String.Equals(screenText.Substring(0,2), "-0")))
                 {
                     screenText = "0";
                 }
