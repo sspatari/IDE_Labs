@@ -120,19 +120,19 @@ namespace Lab2Calculator
                     calculator?.onPowerButtonClick();
                     break;
                 case "Dot":
-                    calculator?.onOperationButtonClick(".");
+                    calculator?.onDotButtonClick();
                     break;
                 case "Add":
-                    calculator?.onOperationButtonClick("+");
+                    calculator?.onOperationGradeOneButtonClick("+");
                     break;
                 case "Divide":
-                    calculator?.onOperationButtonClick("/");
+                    calculator?.onOperationGradeTwoButtonClick("/");
                     break;
                 case "Multiply":
-                    calculator?.onOperationButtonClick("*");
+                    calculator?.onOperationGradeTwoButtonClick("*");
                     break;
                 case "Subtract":
-                    calculator?.onOperationButtonClick("-");
+                    calculator?.onOperationGradeOneButtonClick("-");
                     break;
                 case "Sqrt":
                     calculator?.onSqrtButtonClick();
@@ -150,10 +150,13 @@ namespace Lab2Calculator
                     calculator?.onCancelButtonClick();
                     break;
                 case "LeftParanthesys":
-                    calculator?.onRegularButtonClick("(");
+                    calculator?.onLeftParanthesesClick();
                     break;
                 case "RightParanthesys":
-                    calculator?.onRegularButtonClick(")");
+                    calculator?.onRightParanthesesClick();
+                    break;
+                case "Backspace":
+                    calculator?.onBackspaceButtonClick();
                     break;
                 default:
                     break;
@@ -162,5 +165,4 @@ namespace Lab2Calculator
 
         #endregion
     }
-
 }

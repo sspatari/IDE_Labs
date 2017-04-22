@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab2Calculator"
         mc:Ignorable="d"
-        Title="FAF Calculator" Height="420" Width="300"
+        Title="FAF Calculator" Height="490" Width="300"
         ResizeMode="NoResize">
 
     <Grid>
