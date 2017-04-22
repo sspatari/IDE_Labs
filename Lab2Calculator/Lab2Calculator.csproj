@@ -55,7 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CalculatorClass.cs" />
     <Compile Include="FancyUserControl.xaml.cs">
       <DependentUpon>FancyUserControl.xaml</DependentUpon>
     </Compile>
@@ -74,6 +73,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CalculatorClass.cs" />
     <Compile Include="ICalculator.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

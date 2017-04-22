@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,16 @@ namespace Lab2Calculator
     {
         private string _text;
         private string _textHistory;
-
+        private string _result;
+        private bool _regularPress;
+        
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         public CalculatorClass()
         {
-            screenText = "0";
-            screenTextHistory = "";
+            _text = "0";
+            _textHistory = "";
+            _regularPress = true;
         }
 
         public string screenText
@@ -51,12 +55,14 @@ namespace Lab2Calculator
         public void onCancelButtonClick()
         {
             screenText = "0";
+            _regularPress = true;
         }
 
         public void onCancelAllButtonClick()
         {
             screenTextHistory = "";
             screenText = "0";
+            _regularPress = true;
         }
 
         public void onInversionButtonClick()
@@ -66,46 +72,111 @@ namespace Lab2Calculator
 
         public void onRegularButtonClick(String character)
         {
-            if (screenText == "0")
+            if(_regularPress == false)
             {
                 screenText = character;
             }
             else
             {
-                screenText += character;
+                if (screenText == "0")
+                {
+                    screenText = character;
+                }
+                else
+                {
+                    screenText += character;
+                }
             }
+            _regularPress = true;
+        }
+        public void onDotButtonClick()
+        {
+
         }
 
         public void onOperationButtonClick(String operation)
         {
-            if(screenTextHistory == "")
+            DataTable dt = new DataTable();
+
+            if(_regularPress == true)
             {
                 screenTextHistory += screenText;
+                _result = dt.Compute(screenTextHistory,null).ToString();
+                screenText = _result;
                 screenTextHistory += operation;
-                screenText = "0";//need to change to show result till this moment
+                _regularPress = false;
             }
             else
             {
                 screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length-1) + operation;
-                screenText = "0";//need to change to show result till this moment
+                screenText = _result;
+            }
+        }
+        public void onOperationGradeOneButtonClick(String operation)
+        {
+            DataTable dt = new DataTable();
+
+            if (_regularPress == true)
+            {
+                screenTextHistory += screenText;
+                _result = dt.Compute(screenTextHistory, null).ToString();
+                screenText = _result;
+                screenTextHistory += operation;
+                _regularPress = false;
+            }
+            else
+            {
+                screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length - 1) + operation;
+                screenText = _result;
+            }
+        }
+        public void onOperationGradeTwoButtonClick(String operation)
+        {
+            DataTable dt = new DataTable();
+
+            if (_regularPress == true)
+            {
+                screenTextHistory += screenText;
+                _result = dt.Compute(screenTextHistory, null).ToString();
+                screenText = _result;
+                screenTextHistory += operation;
+                _regularPress = false;
+            }
+            else
+            {
+                screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length - 1) + operation;
+                screenText = _result;
             }
         }
 
         public void onResultButtonClick()
         {
+            DataTable dt = new DataTable();
+
             screenTextHistory += screenText;
-            screenText = Evaluate(screenTextHistory).ToString();
+            screenText = dt.Compute(screenTextHistory, null).ToString();
             screenTextHistory = "";
         }
 
         public void onSqrtButtonClick()
         {
-            
+            // sqrt symbol in unicode is \u221A
+
         }
 
         public void onBackspaceButtonClick()
         {
-            
+            if(_regularPress == true)
+            {
+                if(screenText.Length == 1 || (screenText.Length == 2 && String.Equals(screenText[0],"-")))
+                {
+                    screenText = "0";
+                }
+                else
+                {
+                    screenText = screenText.Remove(screenText.Length - 1);
+                }
+            }
         }
 
         public void onPowerButtonClick()
@@ -113,96 +184,14 @@ namespace Lab2Calculator
             
         }
 
-        // 2+(100/5)+10 = 32
-        //((2.5+10)/5)+2.5 = 5
-        // (2.5+10)/5+2.5 = 1.6666
-        private double Evaluate(String expr)
+        public void onLeftParanthesesClick()
         {
 
-            Stack<String> stack = new Stack<String>();
+        }
 
-            string value = "";
-            for (int i = 0; i < expr.Length; i++)
-            {
-                String s = expr.Substring(i, 1);
-                char chr = s.ToCharArray()[0];
+        public void onRightParanthesesClick()
+        {
 
-                if (!char.IsDigit(chr) && chr != '.' && value != "")
-                {
-                    stack.Push(value);
-                    value = "";
-                }
-
-                if (s.Equals("("))
-                {
-
-                    string innerExp = "";
-                    i++; //Fetch Next Character
-                    int bracketCount = 0;
-                    for (; i < expr.Length; i++)
-                    {
-                        s = expr.Substring(i, 1);
-
-                        if (s.Equals("("))
-                            bracketCount++;
-
-                        if (s.Equals(")"))
-                            if (bracketCount == 0)
-                                break;
-                            else
-                                bracketCount--;
-
-
-                        innerExp += s;
-                    }
-
-                    stack.Push(Evaluate(innerExp).ToString());
-
-                }
-                else if (s.Equals("+")) stack.Push(s);
-                else if (s.Equals("-")) stack.Push(s);
-                else if (s.Equals("*")) stack.Push(s);
-                else if (s.Equals("/")) stack.Push(s);
-                else if (s.Equals("sqrt")) stack.Push(s);
-                else if (s.Equals(")"))
-                {
-                }
-                else if (char.IsDigit(chr) || chr == '.')
-                {
-                    value += s;
-
-                    if (value.Split('.').Length > 2)
-                        throw new Exception("Invalid decimal.");
-
-                    if (i == (expr.Length - 1))
-                        stack.Push(value);
-
-                }
-                else
-                    throw new Exception("Invalid character.");
-
-            }
-
-
-            double result = 0;
-            while (stack.Count >= 3)
-            {
-
-                double right = Convert.ToDouble(stack.Pop());
-                string op = stack.Pop();
-                double left = Convert.ToDouble(stack.Pop());
-
-                if (op == "+") result = left + right;
-                else if (op == "+") result = left + right;
-                else if (op == "-") result = left - right;
-                else if (op == "*") result = left * right;
-                else if (op == "/") result = left / right;
-
-                stack.Push(result.ToString());
-            }
-
-
-            return Convert.ToDouble(stack.Pop());
         }
     }
 }
