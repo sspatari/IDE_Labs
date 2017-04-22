@@ -60,8 +60,11 @@ namespace Lab2Calculator
             this.DataContext = calculator;
             this.AddHandler(StandartUserControl.PressButton, new RoutedEventHandler(OnPressButton));
             this.AddHandler(FancyUserControl.PressButton, new RoutedEventHandler(OnPressButton));
+            this.KeyDown += MainWindow_KeyDown;
+            //this.Focus();
         }
 
+        
         #endregion
 
         #region Handlers
@@ -163,6 +166,85 @@ namespace Lab2Calculator
             };
         }
 
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            Console.WriteLine($"Pressed {e.Key}");
+            switch (e.Key)
+            {
+                case Key.NumPad0:
+                case Key.D0:
+                    calculator?.onRegularButtonClick("0");
+                    break;
+                case Key.NumPad1:
+                case Key.D1:
+                    calculator?.onRegularButtonClick("1");
+                    break;
+                case Key.NumPad2:
+                case Key.D2:
+                    calculator?.onRegularButtonClick("2");
+                    break;
+                case Key.NumPad3:
+                case Key.D3:
+                    calculator?.onRegularButtonClick("3");
+                    break;
+                case Key.NumPad4:
+                case Key.D4:
+                    calculator?.onRegularButtonClick("4");
+                    break;
+                case Key.NumPad5:
+                case Key.D5:
+                    calculator?.onRegularButtonClick("5");
+                    break;
+                case Key.NumPad6:
+                case Key.D6:
+                    calculator?.onRegularButtonClick("6");
+                    break;
+                case Key.NumPad7:
+                case Key.D7:
+                    calculator?.onRegularButtonClick("7");
+                    break;
+                case Key.NumPad8:
+                case Key.D8:
+                    calculator?.onRegularButtonClick("8");
+                    break;
+                case Key.NumPad9:
+                case Key.D9:
+                    calculator?.onRegularButtonClick("9");
+                    break;
+                case Key.Back:
+                    calculator?.onBackspaceButtonClick();
+                    break;
+                case Key.Multiply:
+                    calculator?.onOperationGradeTwoButtonClick("*");
+                    break;
+                case Key.Divide:
+                    calculator?.onOperationGradeTwoButtonClick("*");
+                    break;
+                case Key.Add:
+                    calculator?.onOperationGradeOneButtonClick("+");
+                    break;
+                case Key.Subtract:
+                    calculator?.onOperationGradeOneButtonClick("-");
+                    break;
+                case Key.Enter:
+                    calculator?.onResultButtonClick();
+                    break;
+                case Key.OemPeriod:
+                    calculator?.onDotButtonClick();
+                    break;
+                case Key.OemCloseBrackets:
+                    calculator?.onRightParanthesesClick();
+                    break;
+                case Key.OemOpenBrackets:
+                    calculator?.onLeftParanthesesClick();
+                    break;
+                case Key.Delete:
+                    calculator?.onCancelButtonClick();
+                    break;
+            }
+        }
+
         #endregion
+               
     }
 }
