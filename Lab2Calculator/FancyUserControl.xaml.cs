@@ -194,5 +194,26 @@ namespace Lab2Calculator
             RaiseEvent(new RoutedEventArgs(PressButton, sender));
             e.Handled = true;
         }
+
+        private void paranthesysRightButton_Click(object sender, RoutedEventArgs e)
+        {
+            (e.OriginalSource as FrameworkElement).Name = "RightParanthesys";
+            RaiseEvent(new RoutedEventArgs(PressButton, sender));
+            e.Handled = true;
+        }
+
+        private void paranthesysLeftButton_Click(object sender, RoutedEventArgs e)
+        {
+            (e.OriginalSource as FrameworkElement).Name = "LeftParanthesys";
+            RaiseEvent(new RoutedEventArgs(PressButton, sender));
+            e.Handled = true;
+        }
+
+        private void backspaceButton_Click(object sender, RoutedEventArgs e)
+        {
+            (e.OriginalSource as FrameworkElement).Name = "Backspace";
+            RaiseEvent(new RoutedEventArgs(PressButton, sender));
+            e.Handled = true;
+        }
     }
 }
