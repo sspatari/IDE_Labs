@@ -253,6 +253,16 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <Button x:Name="clearButton" Content="CE" HorizontalAlignment="Left" Height="50" Margin="65,172,0,0" VerticalAlignment="Top" Width="50" FontSize="20"  Foreground="White" BorderBrush="{x:Null}" Click="clearButton_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#B23F70BF" Offset="0"/>
+                    <GradientStop Color="#B23F70BF" Offset="0.5"/>
+                    <GradientStop Color="#FF3F70BF" Offset="0.5"/>
+                    <GradientStop Color="#FF3F70BF" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </UserControl>

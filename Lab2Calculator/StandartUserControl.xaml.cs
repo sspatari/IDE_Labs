@@ -23,7 +23,8 @@ namespace Lab2Calculator
         public StandartUserControl()
         {
             InitializeComponent();
-            StandartUI.DataContext = this;  
+            StandartUI.DataContext = this;
+            this.Focusable = true;
         }
         
         #region Dependency Properties
@@ -60,182 +61,140 @@ namespace Lab2Calculator
         }
 
         #endregion
-        
+
         #region Handlers
+
+        private void RaiseButtonEvent(object sender, RoutedEventArgs e, String name)
+        {
+            (e.OriginalSource as FrameworkElement).Name = name;
+            RaiseEvent(new RoutedEventArgs(PressButton, sender));
+            e.Handled = true;
+            this.Focus();
+        }
 
         private void clearAllButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "ClearAll";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "ClearAll");
         }
 
         private void inversionButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Inverse";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Inverse");
         }
 
         private void sqrtButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Sqrt";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Sqrt");
         }
 
         private void resultButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Result";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Result");
         }
 
         private void additionButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Add";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Add");
         }
 
         private void subtractButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Subtract";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Subtract");
         }
 
         private void multiplyButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Multiply";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Multiply");
         }
 
         private void divisionButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Divide";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Divide");
         }
 
         private void dotButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Dot";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Dot");
         }
 
         private void powerButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Power";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Power");
         }
 
         private void digit0Button_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Num0";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Num0");
         }
 
         private void digit1Button_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Num1";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Num1");
         }
 
         private void digit2Button_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Num2";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Num2");
         }
 
         private void digit3Button_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Num3";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Num3");
         }
 
         private void digit4Button_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Num4";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Num4");
         }
 
         private void digit5Button_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Num5";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Num5");
         }
 
         private void digit6Button_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Num6";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Num6");
         }
 
         private void digit7Button_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Num7";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Num7");
         }
 
         private void digit8Button_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Num8";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Num8");
         }
 
         private void digit9Button_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Num9";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Num9");
         }
 
         private void fancyButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "ChangeUI";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
-        }
-
-        private void clearButton_Click(object sender, RoutedEventArgs e)
-        {
-            (e.OriginalSource as FrameworkElement).Name = "Clear";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "ChangeUI");
         }
 
         private void paranthesysRightButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "RightParanthesys";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "RightParanthesys");
         }
 
         private void paranthesysLeftButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "LeftParanthesys";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "LeftParanthesys");
         }
 
         private void backspaceButton_Click(object sender, RoutedEventArgs e)
         {
-            (e.OriginalSource as FrameworkElement).Name = "Backspace";
-            RaiseEvent(new RoutedEventArgs(PressButton, sender));
-            e.Handled = true;
+            RaiseButtonEvent(sender, e, "Backspace");
+        }
+
+        private void clearButton_Click(object sender, RoutedEventArgs e)
+        {
+            RaiseButtonEvent(sender, e, "Clear");
         }
         #endregion
 
