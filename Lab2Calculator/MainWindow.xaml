@@ -18,7 +18,8 @@
         </ContentControl>
         <ContentControl x:Name="FancyView" Visibility="Hidden">
             <local:FancyUserControl
-                ScreenText="{Binding screenText}">
+                ScreenText="{Binding screenText}"
+                ScreenTextHistory="{Binding screenTextHistory}">
             </local:FancyUserControl>
         </ContentControl>
     </Grid>
