@@ -226,5 +226,12 @@ namespace Lab2Calculator
             RaiseEvent(new RoutedEventArgs(PressButton, sender));
             e.Handled = true;
         }
+
+        private void backspaceButton_Click(object sender, RoutedEventArgs e)
+        {
+            (e.OriginalSource as FrameworkElement).Name = "Backspace";
+            RaiseEvent(new RoutedEventArgs(PressButton, sender));
+            e.Handled = true;
+        }
     }
 }
