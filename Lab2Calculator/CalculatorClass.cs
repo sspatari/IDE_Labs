@@ -91,27 +91,20 @@ namespace Lab2Calculator
         }
         public void onDotButtonClick()
         {
-
-        }
-
-        public void onOperationButtonClick(String operation)
-        {
-            DataTable dt = new DataTable();
-
-            if(_regularPress == true)
+            if(_regularPress == false)
             {
-                screenTextHistory += screenText;
-                _result = dt.Compute(screenTextHistory,null).ToString();
-                screenText = _result;
-                screenTextHistory += operation;
-                _regularPress = false;
+                screenText = "0.";
+                _regularPress = true;
             }
             else
             {
-                screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length-1) + operation;
-                screenText = _result;
+                if (!screenText.Contains("."))
+                {
+                    screenText += ".";
+                }
             }
         }
+
         public void onOperationGradeOneButtonClick(String operation)
         {
             DataTable dt = new DataTable();

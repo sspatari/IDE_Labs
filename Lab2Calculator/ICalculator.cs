@@ -14,7 +14,6 @@ namespace Lab2Calculator
         String screenText { get; set; }
         void onRegularButtonClick(String character);
         void onDotButtonClick();
-        void onOperationButtonClick(String operation);
         void onOperationGradeOneButtonClick(String operation);
         void onOperationGradeTwoButtonClick(String operation);
         void onCancelButtonClick();

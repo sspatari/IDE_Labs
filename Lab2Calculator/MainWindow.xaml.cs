@@ -218,7 +218,7 @@ namespace Lab2Calculator
                     calculator?.onOperationGradeTwoButtonClick("*");
                     break;
                 case Key.Divide:
-                    calculator?.onOperationGradeTwoButtonClick("*");
+                    calculator?.onOperationGradeTwoButtonClick("/");
                     break;
                 case Key.Add:
                     calculator?.onOperationGradeOneButtonClick("+");
