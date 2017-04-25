@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace Lab2Calculator
 {
     class Rpn 
@@ -31,6 +30,7 @@ namespace Lab2Calculator
                 p += input[i];
             }
             input = p;
+            System.Console.WriteLine("initialSec " + input);
             for (int i = 0; i < input.Length; i++) 
             {
                 if (IsDelimeter(input[i]))
@@ -48,8 +48,8 @@ namespace Lab2Calculator
                 }
                 else if (IsOperator(input[i])) 
                 {
-                    if (input[i] == '(') 
-                        operStack.Push(input[i]); 
+                    if (input[i] == '(')
+                        operStack.Push(input[i]);
                     else if (input[i] == ')')
                     {
                         char s = operStack.Pop();
@@ -61,16 +61,28 @@ namespace Lab2Calculator
                     }
                     else
                     {
-                        if (operStack.Count > 0) 
+                        if (operStack.Count > 0)
+                        {
+                            label1:
+                            //System.Console.WriteLine("operStack.Peer1 " + operStack.Peek());
                             if (GetPriority(input[i]) <= GetPriority(operStack.Peek()))
-                                output += operStack.Pop().ToString() + " "; 
-
+                            {
+                                //System.Console.WriteLine("--input[i] " + input[i] + "GetPriority" + GetPriority(input[i]));
+                                //System.Console.WriteLine("operstack.peek " + operStack.Peek() + "GetPriority" + GetPriority(operStack.Peek()));
+                                //System.Console.WriteLine("outputTest " + output);
+                                output += operStack.Pop().ToString() + " ";
+                                //System.Console.WriteLine("outputTestAfter " + output);
+                                if (operStack.Count > 0)
+                                {
+                                    goto label1;
+                                    //System.Console.WriteLine("operStack.Peer2 " + operStack.Peek());
+                                }
+                            }
+                        }
                         operStack.Push(char.Parse(input[i].ToString()));
 
                     }
                 }
-                else if (input[i] == '\u03C0')
-                    output += " \u03C0 ";
                 else
                 {
                     fun = String.Empty;
@@ -98,9 +110,12 @@ namespace Lab2Calculator
                 }
             }
             while (operStack.Count > 0)
+            {
                 output += operStack.Pop() + " ";
-                System.Console.WriteLine("output " + output);
-                return output;
+                //System.Console.WriteLine("outputWhile " + output);
+            }
+            System.Console.WriteLine("outputLast " + output);
+            return output;
         }
 
         static private double Counting(string input)
@@ -129,8 +144,6 @@ namespace Lab2Calculator
                         temp.Push(double.Parse(a)); 
                         i--;
                     }
-                    else if (input[i] == '\u03C0')
-                        temp.Push(Math.PI);
                     else if (IsOperator(input[i])) 
                     {
                         double a = temp.Pop();
@@ -171,7 +184,7 @@ namespace Lab2Calculator
         }
         static private bool IsFunction(String s)
         {
-            String[] func = { "sqrt"};
+            String[] func = { "\u221A" }; //will contain only the sqrt function
             if (Array.Exists(func, e => e == s))
                 return true;
             return false;
@@ -180,7 +193,8 @@ namespace Lab2Calculator
         {
             switch (fun)
             {
-                case "sqrt": if (param < 0) throw new SqrtException(param); else return Math.Sqrt(param).ToString();
+                // the sqrt method
+                case "\u221A": if (param < 0) throw new SqrtException(param); else return Math.Sqrt(param).ToString();
                 default: return "";
             }
         }

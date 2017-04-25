@@ -168,7 +168,8 @@ namespace Lab2Calculator
                 //     _leftParantesesIndexList[_leftParantesesIndexList.Count - 1] + 1), null).ToString(); //second method
                 // result = computeResult(screenTextHistory.Substring(
                 //    _leftParantesesIndexList[_leftParantesesIndexList.Count - 1] + 1)); //second method
-                try { result = Rpn.Calculate(screenTextHistory).ToString(); }
+                try { result = Rpn.Calculate(screenTextHistory.Substring(
+                    _leftParantesesIndexList[_leftParantesesIndexList.Count - 1] + 1)).ToString(); }
                 catch (MyException ex) { result = ex.type; }
             }
             else
@@ -266,9 +267,26 @@ namespace Lab2Calculator
 
         public void onPowerButtonClick()
         {
-            if(_regularPress == true)
+            if (_regularPress == true)
             {
+                screenTextHistory += screenText;
+                _result = findInerResult();
+                screenText = _result;
                 screenTextHistory += "^";
+                _regularPress = false;
+            }
+            else
+            {
+                if (_operationsEnum.Any(item => screenTextHistory.EndsWith(item)))
+                {
+                    screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length - 1) + "^";
+                }
+                else
+                {
+                    _result = findInerResult();
+                    screenText = _result;
+                    screenTextHistory += "^";
+                }
             }
         }
 
@@ -300,7 +318,8 @@ namespace Lab2Calculator
                 //_leftParantesesIndexList[_leftParantesesIndexList.Count - 1]), null).ToString(); //first method
                 //_result = computeResult(screenTextHistory.Substring(
                 //_leftParantesesIndexList[_leftParantesesIndexList.Count - 1])); //second method
-                try { _result = Rpn.Calculate(screenTextHistory).ToString(); }
+                try { _result = Rpn.Calculate(screenTextHistory.Substring(
+                    _leftParantesesIndexList[_leftParantesesIndexList.Count - 1])).ToString(); }
                 catch (MyException ex) { _result = ex.type; }
                 screenText = _result; 
                 _regularPress = false;
