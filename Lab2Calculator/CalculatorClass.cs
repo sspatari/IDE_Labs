@@ -14,14 +14,18 @@ namespace Lab2Calculator
         private string _textHistory;
         private string _result;
         private bool _regularPress;
-        
+        private List<int> _leftParantesesIndexList;
+        IEnumerable<string> _operationsEnum;
+
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         public CalculatorClass()
         {
-            _text = "0";
-            _textHistory = "";
+            screenText = "0";
+            screenTextHistory = "";
             _regularPress = true;
+            _leftParantesesIndexList = new List<int>();
+            _operationsEnum = new List<string>() { "+", "-", "*", "/", "^" };
         }
 
         public string screenText
@@ -60,14 +64,36 @@ namespace Lab2Calculator
 
         public void onCancelAllButtonClick()
         {
-            screenTextHistory = "";
             screenText = "0";
+            screenTextHistory = "";
             _regularPress = true;
+            _leftParantesesIndexList.Clear();
         }
 
         public void onInversionButtonClick()
         {
+            if (_regularPress == true)
+            {
+                if (screenText != "0")
+                {
+                    screenText = inverseSign(screenText);
+                }
+            }
+            //need to implement the else part
+               
+           
+        }
 
+        private string inverseSign(string str)
+        {
+            if (str.StartsWith("-"))
+            {
+                return str.Remove(0,1);
+            }
+            else
+            {
+                return "-" + str;
+            }
         }
 
         public void onRegularButtonClick(String character)
@@ -88,6 +114,7 @@ namespace Lab2Calculator
                 }
             }
             _regularPress = true;
+            //need to delete last number when operation not present
         }
         public void onDotButtonClick()
         {
@@ -107,47 +134,90 @@ namespace Lab2Calculator
 
         public void onOperationGradeOneButtonClick(String operation)
         {
-            DataTable dt = new DataTable();
-
             if (_regularPress == true)
             {
                 screenTextHistory += screenText;
-                _result = dt.Compute(screenTextHistory, null).ToString();
+                _result = findInerResult();             
                 screenText = _result;
                 screenTextHistory += operation;
                 _regularPress = false;
             }
             else
             {
-                screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length - 1) + operation;
-                screenText = _result;
+                if(_operationsEnum.Any(item => screenTextHistory.EndsWith(item)))
+                {
+                    screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length - 1) + operation;
+                }
+                else
+                {
+                    _result = findInerResult();
+                    screenText = _result;
+                    screenTextHistory += operation;
+                }
             }
         }
+
+        private string findInerResult()
+        {
+            //DataTable dt = new DataTable(); // firt method
+            string result;
+
+            if (_leftParantesesIndexList.Count != 0)
+            {
+                // result = dt.Compute(screenTextHistory.Substring(
+                //     _leftParantesesIndexList[_leftParantesesIndexList.Count - 1] + 1), null).ToString(); //second method
+                // result = computeResult(screenTextHistory.Substring(
+                //    _leftParantesesIndexList[_leftParantesesIndexList.Count - 1] + 1)); //second method
+                try { result = Rpn.Calculate(screenTextHistory).ToString(); }
+                catch (MyException ex) { result = ex.type; }
+            }
+            else
+            {
+                //result = computeResult(screenTextHistory); second method
+                try { result = Rpn.Calculate(screenTextHistory).ToString(); }
+                catch (MyException ex) { result = ex.type; }
+            }
+            return result;
+        }
+
         public void onOperationGradeTwoButtonClick(String operation)
         {
-            DataTable dt = new DataTable();
-
             if (_regularPress == true)
             {
                 screenTextHistory += screenText;
-                _result = dt.Compute(screenTextHistory, null).ToString();
+                _result = findInerResult();
                 screenText = _result;
                 screenTextHistory += operation;
                 _regularPress = false;
             }
             else
             {
-                screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length - 1) + operation;
-                screenText = _result;
+                if (_operationsEnum.Any(item => screenTextHistory.EndsWith(item)))
+                {
+                    screenTextHistory = screenTextHistory.Remove(screenTextHistory.Length - 1) + operation;
+                }
+                else
+                {
+                    _result = findInerResult();
+                    screenText = _result;
+                    screenTextHistory += operation;
+                }
             }
         }
 
         public void onResultButtonClick()
         {
-            DataTable dt = new DataTable();
+            // DataTable dt = new DataTable(); //used for first method
 
-            screenTextHistory += screenText;
-            screenText = dt.Compute(screenTextHistory, null).ToString();
+            if (_operationsEnum.Any(item => screenTextHistory.EndsWith(item)))
+            {
+                screenTextHistory += screenText;
+            }
+            _leftParantesesIndexList.ForEach(item => screenTextHistory += ")"); //adds the remaing right paranteses if needed
+            // screenText = dt.Compute(screenTextHistory, null).ToString(); //used for first method
+            // screenText = computeResult(screenTextHistory); //used for second method
+            try { screenText = Rpn.Calculate(screenTextHistory).ToString(); }
+            catch (MyException ex) { screenText = ex.type; }                                                                          
             screenTextHistory = "";
         }
 
@@ -155,6 +225,26 @@ namespace Lab2Calculator
         {
             // sqrt symbol in unicode is \u221A
 
+        }
+
+        private string computeResult(string str)
+        {
+            string result;
+            Type scriptType = Type.GetTypeFromCLSID(Guid.Parse("0E59F1D5-1FBE-11D0-8FF2-00A0D10038BC"));
+
+            dynamic obj = Activator.CreateInstance(scriptType, false);
+            obj.Language = "javascript";
+            try
+            {
+                var res = obj.Eval(str);
+                result = Convert.ToString(res);
+
+            }
+            catch (Exception)
+            {
+                result = "Syntax error";
+            }
+            return result;
         }
 
         public void onBackspaceButtonClick()
@@ -176,17 +266,46 @@ namespace Lab2Calculator
 
         public void onPowerButtonClick()
         {
-            
+            if(_regularPress == true)
+            {
+                screenTextHistory += "^";
+            }
         }
 
         public void onLeftParanthesesClick()
         {
-
+            screenTextHistory += "(";
+            if (_regularPress == false)
+            {
+                screenText = "0";
+            }
+            _leftParantesesIndexList.Add(screenTextHistory.Length-1);
         }
 
         public void onRightParanthesesClick()
         {
-
+            if (_leftParantesesIndexList.Count != 0)
+            {
+                // DataTable dt = new DataTable(); //first method
+                if (_operationsEnum.Any(item => screenTextHistory.EndsWith(item)) ||
+                    screenTextHistory.Substring(screenTextHistory.Length-1) == "(")
+                {
+                    screenTextHistory += screenText + ")";
+                }
+                else
+                {
+                    screenTextHistory += ")";
+                }
+                //_result = dt.Compute(screenTextHistory.Substring(
+                //_leftParantesesIndexList[_leftParantesesIndexList.Count - 1]), null).ToString(); //first method
+                //_result = computeResult(screenTextHistory.Substring(
+                //_leftParantesesIndexList[_leftParantesesIndexList.Count - 1])); //second method
+                try { _result = Rpn.Calculate(screenTextHistory).ToString(); }
+                catch (MyException ex) { _result = ex.type; }
+                screenText = _result; 
+                _regularPress = false;
+                _leftParantesesIndexList.RemoveAt(_leftParantesesIndexList.Count - 1);
+            }
         }
     }
 }
