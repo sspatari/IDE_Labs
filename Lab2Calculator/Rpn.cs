@@ -23,7 +23,7 @@ namespace Lab2Calculator
                 {
                     if (k == ' ')
                         k = input[i];
-                    else if (input[i] == '-' && !Char.IsDigit(k))
+                    else if (input[i] == '-' && !Char.IsDigit(k) && k != ')')
                         p += " 0 ";
                     k = input[i];
                 }         
@@ -184,7 +184,7 @@ namespace Lab2Calculator
         }
         static private bool IsFunction(String s)
         {
-            String[] func = { "\u221A" }; //will contain only the sqrt function
+            String[] func = { "\u221A", "negate" }; //will contain only the sqrt and negate function
             if (Array.Exists(func, e => e == s))
                 return true;
             return false;
@@ -195,6 +195,7 @@ namespace Lab2Calculator
             {
                 // the sqrt method
                 case "\u221A": if (param < 0) throw new SqrtException(param); else return Math.Sqrt(param).ToString();
+                case "negate": return (-param).ToString();
                 default: return "";
             }
         }

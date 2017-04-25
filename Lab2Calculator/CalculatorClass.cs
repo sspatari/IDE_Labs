@@ -15,6 +15,7 @@ namespace Lab2Calculator
         private string _result;
         private bool _regularPress;
         private List<int> _leftParantesesIndexList;
+        private int _lastRemovedLeftParantesesIndex;
         IEnumerable<string> _operationsEnum;
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
@@ -26,7 +27,8 @@ namespace Lab2Calculator
             _regularPress = true;
             _leftParantesesIndexList = new List<int>();
             _operationsEnum = new List<string>() { "+", "-", "*", "/", "^" };
-        }
+            _lastRemovedLeftParantesesIndex = -1;
+    }
 
         public string screenText
         {
@@ -68,6 +70,7 @@ namespace Lab2Calculator
             screenTextHistory = "";
             _regularPress = true;
             _leftParantesesIndexList.Clear();
+            _lastRemovedLeftParantesesIndex = -1;
         }
 
         public void onInversionButtonClick()
@@ -76,24 +79,17 @@ namespace Lab2Calculator
             {
                 if (screenText != "0")
                 {
-                    screenText = inverseSign(screenText);
+                    if (screenText.StartsWith("-"))
+                    {
+                        screenText.Remove(0, 1);
+                    }
+                    else
+                    {
+                        screenText = "-" + screenText;
+                    }
                 }
             }
-            //need to implement the else part
-               
-           
-        }
-
-        private string inverseSign(string str)
-        {
-            if (str.StartsWith("-"))
-            {
-                return str.Remove(0,1);
-            }
-            else
-            {
-                return "-" + str;
-            }
+            //need to implement the else part if want to be cooler
         }
 
         public void onRegularButtonClick(String character)
@@ -136,7 +132,15 @@ namespace Lab2Calculator
         {
             if (_regularPress == true)
             {
-                screenTextHistory += screenText;
+                if (Double.Parse(screenText) < 0 && _operationsEnum.Any(item => screenTextHistory.EndsWith(item)))
+                {
+                    screenTextHistory += "(" + screenText + ")";
+                }
+                else
+                {
+                    screenTextHistory += screenText;
+                }
+                
                 _result = findInerResult();             
                 screenText = _result;
                 screenTextHistory += operation;
@@ -154,7 +158,7 @@ namespace Lab2Calculator
                     screenText = _result;
                     screenTextHistory += operation;
                 }
-            }
+            }   
         }
 
         private string findInerResult()
@@ -185,7 +189,15 @@ namespace Lab2Calculator
         {
             if (_regularPress == true)
             {
-                screenTextHistory += screenText;
+                if (Double.Parse(screenText) < 0 && _operationsEnum.Any(item => screenTextHistory.EndsWith(item)))
+                {
+                    screenTextHistory += "(" + screenText + ")";
+                }
+                else
+                {
+                    screenTextHistory += screenText;
+                }
+
                 _result = findInerResult();
                 screenText = _result;
                 screenTextHistory += operation;
@@ -225,7 +237,12 @@ namespace Lab2Calculator
         public void onSqrtButtonClick()
         {
             // sqrt symbol in unicode is \u221A
-
+            if (_regularPress == true)
+            {
+                screenTextHistory += "\u221A" + "(" + screenText + ")";
+                screenText = Math.Sqrt(Double.Parse(screenText)).ToString();
+                _regularPress = false;
+            }
         }
 
         private string computeResult(string str)
@@ -269,7 +286,14 @@ namespace Lab2Calculator
         {
             if (_regularPress == true)
             {
-                screenTextHistory += screenText;
+                if (Double.Parse(screenText) < 0 && _operationsEnum.Any(item => screenTextHistory.EndsWith(item)))
+                {
+                    screenTextHistory += "(" + screenText + ")";
+                }
+                else
+                {
+                    screenTextHistory += screenText;
+                }
                 _result = findInerResult();
                 screenText = _result;
                 screenTextHistory += "^";
@@ -323,6 +347,7 @@ namespace Lab2Calculator
                 catch (MyException ex) { _result = ex.type; }
                 screenText = _result; 
                 _regularPress = false;
+                _lastRemovedLeftParantesesIndex = _leftParantesesIndexList[_leftParantesesIndexList.Count - 1];
                 _leftParantesesIndexList.RemoveAt(_leftParantesesIndexList.Count - 1);
             }
         }
