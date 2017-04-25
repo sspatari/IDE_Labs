@@ -58,6 +58,7 @@
     <Compile Include="FancyUserControl.xaml.cs">
       <DependentUpon>FancyUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Rpn.cs" />
     <Compile Include="StandartUserControl.xaml.cs">
       <DependentUpon>StandartUserControl.xaml</DependentUpon>
     </Compile>
