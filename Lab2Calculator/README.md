@@ -19,7 +19,7 @@ After searching how could I parse the text and obtain an expression, I first wan
 The interface:
 ![Alt](images/image1.png)
 
-- The Reverse polish notation is implemented in te Rpn.cs. The most important method are the ```GetExpresssion method```  and the ```Conting method```. The first one returns the reverse polish notation output and the second computes the result of the reverse polish notation output.
+- The Reverse polish notation is implemented in te Rpn.cs. The most important method are the ```GetExpresssion method```  and the ```Counting method```. The first one returns the reverse polish notation output and the second computes the result of the reverse polish notation output.
 
 - The CalculatorClass is the place where method used by buttons where implemented and of course some additional ones that where meant to help in this procces.
 
