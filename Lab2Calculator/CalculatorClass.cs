@@ -28,7 +28,7 @@ namespace Lab2Calculator
             _leftParantesesIndexList = new List<int>();
             _operationsEnum = new List<string>() { "+", "-", "*", "/", "^" };
             _lastRemovedLeftParantesesIndex = -1;
-    }
+        }
 
         public string screenText
         {
@@ -116,14 +116,14 @@ namespace Lab2Calculator
         {
             if(_regularPress == false)
             {
-                screenText = "0,";
+                screenText = "0.";
                 _regularPress = true;
             }
             else
             {
-                if (!screenText.Contains(","))
+                if (!screenText.Contains("."))
                 {
-                    screenText += ",";
+                    screenText += ".";
                 }
             }
         }
