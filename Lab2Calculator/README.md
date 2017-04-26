@@ -1,7 +1,7 @@
 # Integrated Developement Enviroments Laboratory Work Nr.2
 ## Short description
 
-For this laboratory work the work was devided in 2 parts the UI and the Bussiness-Logic. I was the person behind bussiness logic. But I will give also a brief introduction behind the implemented UI part. In order to parse the written expression I used the Reverse polish notation Algorithm
+For this laboratory work the work was devided in 2 parts the UI and the Bussiness-Logic. I was the person behind bussiness logic. But I will give also a brief introduction behind the implemented UI part. In order to parse the written expression I used the Reverse polish notation Algorithm. This project was implemented in C# (my first time writing in this language :D) using Microsoft Visual Studio as an IDE.
 
 ## Reverse polish notation
 
@@ -19,7 +19,6 @@ The interface:
 ![Alt](images/image1.png)
 
 - The Reverse polish notation is implemented in te Rpn.cs. The most important method are the ```GetExpresssion method```  and the ```Conting method```. The first one returns the reverse polish notation output and the second computes the result of the reverse polish notation output.
-Now we can easily connect with ssh to our remote server. In linux distributors we type in ```ssh  ubuntu@192.168.0.102```. You have to enter password to your ubuntu server.
 
 - The CalculatorClass is the place where method used by buttons where implemented and of course some additional ones that where meant to help in this procces.
 
@@ -36,7 +35,6 @@ Now we can easily connect with ssh to our remote server. In linux distributors w
 ![Alt](images/image3.png)
 ![Alt](images/image4.png)
 ![Alt](images/image5.png)
-
 
 ## Conclusion
 So, it was really cool to create this calculator application, aspecially in a team. The process of resolving conflict and merging all, and seeing that it works gives you the idea how are real applications implemented. Taking into account that it was my first time writing c# code, I know that many thing could have been implemented in other ways maybe better maybe no. At the same time I can say that this project can be further upgraded. I also implemented the negate funtion but didn't used it. Feel free to use my code and change it to your own desire.
