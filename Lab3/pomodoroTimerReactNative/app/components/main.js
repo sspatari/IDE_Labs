@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View } from 'react-native';
+import Timer from './timer.js'
 
 export default class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Pomodoro Timer</Text>
+        <Timer />
       </View>
     );
   }
